@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style>
+    .property-detail-container {
+      display: flex;
+      align-items: flex-start;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 100px;
+      background-color: white;
+    }
+  
+    .property-image-container {
+      max-width: 500px;
+      overflow: hidden;
+      margin-right: 40px;
+      height: 100%;
+    }
+  
+    .property-image-container img {
+      
+      height: 100%;
+      height: auto;
+      display: block;
+    }
+  
+    .property-info-container {
+      max-width: 600px; }
+  
+    .property-info-container h1 {
+      margin-bottom: 10px;
+    }
+  
+    .property-info-container h4 {
+      margin-bottom: 5px;
+    }
+  
+    .property-description {
+        margin: 20px 0;
+    }
+        .property-description h6 {
+        display: inline-block;
+        padding: 5px;
+        border-radius: 20px;
+        background-color: #007bff;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+
+  
+    .property-details {
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .property-details h4 {
+      margin-bottom: 5px;
+    }
+  
+    .property-location {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    body{
+        background-color: aliceblue;
+    }
+  </style>
+
+{% endblock %}
+
+
+{% block main %}
+
+
+   
+
+    <div class="property-detail-container">
+        <div class="property-image-container">
+            <img  src="{{ url_for( 'get_image' , filename=property[0].photo) }}" alt="{{ file }}">
+        </div>
+        <div class="property-info-container">
+            <h1> {{ property[0].title }}</h1>
+            <div  class="property-description">
+                <div><h6> {{ property[0].price}}</h6></div>
+                <div ><h6 style="background-color: yellow;"> {{ property[0].types}}</h6></div>
+            </div>
+            <p>
+                {{ property[0].description}}
+            </p>
+
+            <div class="property-details">
+                <h4> {{ property[0].numBedrooms}} </h4>
+                <h4> {{ property[0].numBathrooms}} </h4>
+            </div>
+
+            <h4 class="property-location">{{ property[0].location }}</h4>
+            <button>Email Realtor</button>
+
+
+
+       
+        </div>
+    </div>
+
+
+
+    
+
+
+
+
+
+{% endblock %}
+
+{% block js %}{% endblock %}

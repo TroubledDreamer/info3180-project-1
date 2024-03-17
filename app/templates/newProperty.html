@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  
+    form div {
+      margin-bottom: 10px;
+    }
+  
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+  
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  
+    button:hover {
+      background-color: #0056b3;
+    }
+  
+    span.error {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+{% endblock %}
+
+{% block main %}
+<h1>Add New Property</h1>
+
+<form method="POST" enctype="multipart/form-data" action="{{ url_for('newProperty')}}">
+    {{ form.csrf_token }}
+
+    {{form.propertyTitle.label}}
+    {{form.propertyTitle()}}
+    <br>
+    {{form.description.label}}
+    {{form.description()}}
+    <br>
+    <div style=" display: flex;">
+    <div style="display: block;">{{form.numBedrooms.label}}
+    {{form.numBedrooms()}}</div>
+
+    <div style="display: block;  margin-left: 30px;">{{form.numBathrooms.label}}
+    {{form.numBathrooms()}}</div>
+    </div>
+    <br>
+    <div div style=" display: flex;">
+
+    <div style="display: block;">{{form.price.label}}
+    {{form.price()}}</div>
+
+    <div style="display: block; margin-left: 30px;">
+    {{form.types.label}}
+    {{form.types()}}</div>
+    </div>
+    <br>
+
+    {{form.location.label}}
+    {{form.location()}}
+    <br>
+
+    {{form.photo.label}}
+    {{form.photo()}}
+    <br>
+
+
+    <button type="submit">Add Property</button>
+
+    
+
+
+
+
+</form>
+
+{% for error in form.propertyTitle.errors %}
+<span style="color: red;">{{ error }}</span>
+{% endfor %}
+
+
+{% endblock %}
+
+{% block js %}{% endblock %}

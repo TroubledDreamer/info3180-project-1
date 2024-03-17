@@ -10,3 +10,7 @@ packaging==23.2
 python-dotenv==1.0.1
 Werkzeug==3.0.1
 zipp==3.13.0
+flask_wtf==1.2.1
+Flask-Migrate==4.0.7
+psycopg2==2.9.9
+python-dotenv==1.0.1
