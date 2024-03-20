@@ -24,7 +24,7 @@
         <div class="property-text-container"> 
             <h3> {{ property.title }}</h3>
             <h4 style="opacity: 50%;"> {{ property.location }}</h4>
-            <h5> {{ property.price}} </h5>
+            <h5> ${{ property.price}} </h5>
         </div>
         <a href="{{ url_for('property', property_id=property.id) }}" class="view-property-button"><div><h2>View Property</h2></div></a>
     </div>
